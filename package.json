@@ -1,0 +1,34 @@
+{
+  "name": "venom",
+  "description": "Simple way to add dependency injection for Javascript projects",
+  "version": "0.0.0",
+  "homepage": "https://github.com/dgaubert/venom.git",
+  "author": "Daniel García Aubert (danielgarciaaubert@gmail.com)",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/dgaubert/venom/blob/master/LICENSE"
+    }
+  ],  
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": ">=1.13.0",
+    "should": ">=1.3.0",
+    "sinon": ">=1.7.3",
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-forever": "~0.4.1"
+  },
+  "main": "index.js",
+  "bugs": {
+    "url": "https://github.com/dgaubert/venom/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/dgaubert/venom.git"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --check-leaks"
+  }
+}
