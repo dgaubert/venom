@@ -12,6 +12,16 @@ module.exports = function (grunt) {
         }
       }
     },
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'dot',
+          require: 'should',
+          ui: 'bdd'
+        },
+        src: ['test/**/*.js']
+      }
+    },
     watch: {
       files: ['<%= jshint.files %>'],
       tasks: ['default']
@@ -20,12 +30,13 @@ module.exports = function (grunt) {
 
   // load plugins
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
   // run typing "grunt test"
-  grunt.registerTask('test', ['jshint']);
+  grunt.registerTask('test', ['jshint', 'mochaTest']);
 
   // run typing "grunt"
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'mochaTest']);
 
 };

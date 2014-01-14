@@ -1,15 +1,15 @@
 var venom = require('../lib/venom');
 
-describe('index', function () {
+describe('Venom', function () {
 
   it('Dependency should be registered', function () {
-    venon.injector.register('test', {test: 'test'});
+    venom.injector.register('test', {test: 'test'});
 
-    venon.dependencies.should.have.property('test');
+    venom.container.dependencies.should.have.property('test');
   });
 
   it('Dependency should be injected', function () {
-    venon.injector.register('Engine', {
+    venom.injector.register('Engine', {
       start: function () {
         return 'Burruuuuum!';
       }
@@ -26,9 +26,9 @@ describe('index', function () {
       };
     }
 
-    var car = venon.injector.process(Car);
+    var car = venom.injector.process(Car);
 
-    venon.dependencies.should.have.property('Engine');
+    venom.container.dependencies.should.have.property('Engine');
     car.should.have.property('start');
 
   });

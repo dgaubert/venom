@@ -29,6 +29,6 @@
     "url": "git://github.com/dgaubert/venom.git"
   },
   "scripts": {
-    "test": "./node_modules/.bin/mocha --check-leaks"
+    "test": "grunt test"
   }
 }
