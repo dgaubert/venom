@@ -17,8 +17,8 @@
     "sinon": ">=1.7.3",
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-forever": "~0.4.1"
+    "grunt-mocha-test": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.3"
   },
   "main": "index.js",
   "bugs": {
