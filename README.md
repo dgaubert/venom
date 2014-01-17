@@ -1,46 +1,57 @@
-Venom
-=====
+# Venom
 
-Simple module to add dependency injection for Javascript projects,
+Simple way to add DI to your javascript projects.
 
-Install
-=======
+## Installation
 
-```javascript
-npm install venom
+On project path:
 
 ```
+npm install venom
+```
 
-Usage
-=====
+## Examples
 
-```javascript
+Node projects:
+
+```js
 var venom = require('venom');
 
 bla, bla, ...
 
 ```
 
-LICENSE
-=======
+Browser:
 
-The MIT License (MIT)
+```js
+<script type="text/javascript" src="venom.min.js"></script>
+<script type="text/javascript">
+  venom.add('dependeny', dependency);
 
-Copyright (c) 2014 Daniel García Aubert <danielgarciaaubert@gmail.com>
+  bla, bla, ..
+</script>
+```
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-the Software, and to permit persons to whom the Software is furnished to do so,
-subject to the following conditions:
+To view a full guide, take a look: [guide.md](https://github.com/dgaubert/venom/blob/master/docs/guide.md)
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## Contributions
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+Do you want to contribute?. Please, follow the below suggestions:
+  - To add features, `pull requests` to `develop` branch.
+  - To fix bugs in release version, `pull request` both `master` and `develop` branches.
+  - Be consistent with style and design decisions.
+  - Cover your implementation with tests, add it under `test/*-test.js`.
+
+## Change history
+
+To view change history, please visit: [history.md](https://github.com/dgaubert/venom/blob/master/docs/hystory.md)
+
+### Versioning strategy
+
+  - The major version will increase for any backward-incompatible changes.
+  - The minor version will increase for added features.
+  - The patch version will increase for bug-fixes.
+
+## License
+
+To view the MIT license, please visit: [The MIT License (MIT)](https://github.com/dgaubert/venom/blob/master/LICENSE)

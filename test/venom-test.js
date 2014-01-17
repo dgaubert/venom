@@ -109,7 +109,7 @@ describe('Venom', function () {
       return param3 + param4;
     };
 
-    sum = venom.bind(sum);
+    sum = venom.tie(sum);
 
     sum().should.equal(7);
   });
