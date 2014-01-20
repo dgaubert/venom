@@ -26,7 +26,7 @@ Browser:
 ```js
 <script type="text/javascript" src="venom.min.js"></script>
 <script type="text/javascript">
-  venom.add('dependeny', dependency);
+  venom.add('dependency', dependency);
 
   bla, bla, ..
 </script>
@@ -46,7 +46,7 @@ Do you want to contribute?. Please, follow the below suggestions:
 
 To view change history, please visit: [history.md](https://github.com/dgaubert/venom/blob/master/docs/hystory.md)
 
-### Versioning strategy
+Versioning strategy:
 
   - The major version will increase for any backward-incompatible changes.
   - The minor version will increase for added features.
