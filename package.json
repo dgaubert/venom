@@ -18,7 +18,7 @@
     "node",
     "browser"
   ],  
-  "main": "./lib/venom", 
+  "main": "./lib/venom",
   "dependencies": {},
   "devDependencies": {
     "mocha": ">=1.13.0",
@@ -27,6 +27,8 @@
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-mocha-test": "~0.2.2",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-uglify": "~0.2.7",
     "grunt-contrib-watch": "~0.5.3"
   },
   "bugs": {

@@ -17,8 +17,26 @@ Node projects:
 ```js
 var venom = require('venom');
 
-bla, bla, ...
+// Dependency to inject
+var ElectricEngine = {
+  start: function () {
+  return 'Fisiuu!!';
+  }
+};
 
+// Constructor
+function Car (ElectricEngine) {
+  this.engine = ElectricEngine;
+}
+
+Car.prototype.start = function () {
+  return this.engine.start();
+};
+
+venom.add('ElectricEngine', ElectricEngine);
+var car = venom.create(Car);
+
+console.log(car.start());
 ```
 
 Browser:
@@ -26,9 +44,26 @@ Browser:
 ```js
 <script type="text/javascript" src="venom.min.js"></script>
 <script type="text/javascript">
-  venom.add('dependency', dependency);
+  // Dependency to inject
+  var ElectricEngine = {
+    start: function () {
+  	return 'Fisiuu!!';
+    }
+  };
 
-  bla, bla, ..
+  // Constructor
+  function Car (ElectricEngine) {
+    this.engine = ElectricEngine;
+  }
+
+  Car.prototype.start = function () {
+    return this.engine.start();
+  };
+
+  venom.add('ElectricEngine', ElectricEngine);
+  var car = venom.create(Car);
+
+  alert(car.start()); // Fisiuu!!
 </script>
 ```
 

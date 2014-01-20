@@ -1,3 +1,4 @@
+var should = require('should');
 var venom = require('../lib/venom');
 
 describe('Venom', function () {
