@@ -4,11 +4,15 @@ Simple way to add DI to your javascript projects.
 
 ## Installation
 
-On project path:
+Node.js, on project path:
 
 ```
 npm install venom
 ```
+
+Browser:
+
+  - Donwload [venon.min.js](https://raw.github.com/dgaubert/venom/master/build/venom.min.js) and include it in `script` tag.
 
 ## Examples
 
@@ -20,7 +24,7 @@ var venom = require('venom');
 // Dependency to inject
 var ElectricEngine = {
   start: function () {
-  return 'Fisiuu!!';
+    return 'Fisiuu!!';
   }
 };
 
@@ -36,7 +40,7 @@ Car.prototype.start = function () {
 venom.add('ElectricEngine', ElectricEngine);
 var car = venom.create(Car);
 
-console.log(car.start());
+console.log(car.start()); // Fisiuu!!
 ```
 
 Browser:
@@ -47,7 +51,7 @@ Browser:
   // Dependency to inject
   var ElectricEngine = {
     start: function () {
-  	return 'Fisiuu!!';
+  	  return 'Fisiuu!!';
     }
   };
 
