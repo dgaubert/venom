@@ -9,7 +9,7 @@ describe('Venom', function () {
   it('.add() dependency should be added', function () {
     venom.add('engines', 1);
 
-    venom.dependencies.should.have.property('engines');
+    venom.getContainer().should.have.property('engines');
   });
 
   it('.add() register twice a dependency should throw error', function () {
@@ -29,7 +29,7 @@ describe('Venom', function () {
   it('.drop() dependency should be removed', function () {
     venom.add('engines', 1);
     venom.drop('engines');
-    venom.dependencies.should.not.have.property('engines');
+    venom.getContainer().should.not.have.property('engines');
   });
 
   it('.drop() remove unadded dependency should throw error', function () {
@@ -37,19 +37,19 @@ describe('Venom', function () {
     venom.drop.bind(venom,'_engines').should.throw();
   });
 
-  it('.drop() dependencies should be removed', function () {
+  it('.clear() all dependencies should be removed', function () {
     venom.add('engines', 1);
     venom.add('wheels', 4);
     
     venom.clear();
 
-    venom.dependencies.should.not.have.property('engines');
-    venom.dependencies.should.not.have.property('wheels');
+    venom.getContainer().should.not.have.property('engines');
+    venom.getContainer().should.not.have.property('wheels');
   });
 
   it('.create() should return a new object with its dependence ', function () {
 
-    // Dependency to perform
+    // Dependency to inject
     var ElectricEngine = {
       start: function () {
         return 'Fisiuu!!';
@@ -68,13 +68,15 @@ describe('Venom', function () {
     venom.add('ElectricEngine', ElectricEngine);
     var car = venom.create(Car);
 
-    venom.dependencies.should.have.property('ElectricEngine');
+    venom.getContainer().should.have.property('ElectricEngine');
     car.should.have.property('start');
     car.start().should.equal('Fisiuu!!');
 
   });
 
   it('.create() should return a object that have another object inherited', function () {
+
+    // Parent object
     function Engine() {
       this.pistons = 8;
       this.getPistons = function () {
@@ -82,6 +84,7 @@ describe('Venom', function () {
       };
     }
 
+    // Constructor
     function Car(type) {
       this.type = type;
       this.getType = function () {
@@ -94,15 +97,15 @@ describe('Venom', function () {
 
     var car = venom.create(Car);
 
-    venom.dependencies.should.have.property('type');
+    venom.getContainer().should.have.property('type');
 
     car.getPistons().should.equal(8);
     car.getType().should.equal('gasoil');
   });
 
-  it('.perform() on clousure, dependency should be performed', function () {
+  it('.perform() on clousure, dependency should be injected', function () {
 
-    // Dependency to perform      
+    // Dependency to inject
     var GasoilEngine = {
       start: function () {
         return 'Burruuum!!';
@@ -121,13 +124,13 @@ describe('Venom', function () {
     venom.add('GasoilEngine', GasoilEngine);
     var car = venom.perform(Car);
 
-    venom.dependencies.should.have.property('GasoilEngine');
+    venom.getContainer().should.have.property('GasoilEngine');
     car.should.have.property('start');
     car.start().should.equal('Burruuum!!');
 
   });
 
-  it('.perform() two dependencies should be performed', function () {
+  it('.perform() two dependencies should be injected', function () {
     venom.add('one', 1);
     venom.add('two', 2);
 
@@ -183,7 +186,7 @@ describe('Venom', function () {
     venom.perform(getOne).should.equal(1);
   });
 
-  it('.tie() dependencies should be bound', function () {
+  it('.enclose() dependencies should be bound', function () {
     venom.add('one', 1);
     venom.add('two', 2);
 
@@ -191,7 +194,7 @@ describe('Venom', function () {
       return one + two;
     };
 
-    var getThree = venom.tie(sum);
+    var getThree = venom.enclose(sum);
 
     getThree().should.equal(3);
 
